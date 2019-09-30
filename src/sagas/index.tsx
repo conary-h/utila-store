@@ -1,14 +1,9 @@
 import { all, fork } from 'redux-saga/effects';
-
-function* helloSaga() {
-
-  console.log('Saga is alive!!!');
-}
-
+import { fetchDataWatcher } from './employees';
 
 function* rootSaga() {
     yield all([
-        fork(helloSaga),
+        fork(fetchDataWatcher),
     ]);
 }
 
