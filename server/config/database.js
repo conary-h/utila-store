@@ -2,7 +2,10 @@
 const mongoose = require('mongoose');
 
 
-mongoose.connect('mongodb+srv://conary:samsung@cluster0-nmx0q.mongodb.net/test');
+mongoose.connect(process.env.DATABASE, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 mongoose.Promise = global.Promise;
 
@@ -17,5 +20,7 @@ mongoose.connection.on('connected', () => {
 if (process.env.NODE_ENV === 'development') {
   mongoose.set('debug', true);
 }
+
+require('../models/index');
 
 exports.module = mongoose;

@@ -1,17 +1,12 @@
 const express = require('express');
-const dotenv = require('dotenv');
 const path = require('path');
+const routes = require('./routes/index');
+const dotenvPath = path.join(__dirname, '..', 'server', '.env.local');
+const dotenv = require('dotenv').config({ path: dotenvPath });
+const app = express();
 const mongoose = require('./config/database');
 
-const app = express();
-
-dotenv.config();
-
-console.log('process.env.DATABASE', process.env.DATABASE);
-
-app.use('/oa', (req, res) => {
-    res.json({'hi': 65});
-});
+app.use('/', routes);
 
 app.set('port', process.env.PORT || 7777);
 
