@@ -1,15 +1,15 @@
-import { EMPLOYEES_REQUESTED, EMPLOYEES_WATCHER } from '../actions/types';
+import { SUCCESS_EMPLOYEES, EmployeesActionTypes } from '../actions/types';
+import { Employees } from '../types/Employee';
+
+const initialState: Employees[] = [];
   
-const reducer = (state = {}, action: any) => {
+const reducer = (state = initialState, action: EmployeesActionTypes): Employees[] => {
     switch (action.type) {
-       case EMPLOYEES_REQUESTED:
-         return {
-            ...state,
-            emplooyees: action.employees,
-        };
-        case EMPLOYEES_WATCHER:
-            console.log('Reducer prro!');
-            return { ...state };
+       case SUCCESS_EMPLOYEES:
+
+         return [
+            ...action.employees,
+         ];
        default:
           return state;
      }
