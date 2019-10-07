@@ -1,19 +1,18 @@
-import { EMPLOYEES_REQUESTED, EMPLOYEES_WATCHER } from './types';
+import { FETCH_EMPLOYEES, SUCCESS_EMPLOYEES, AppActions } from './types';
+import { Employees } from '../types/Employee';
 
-export function requestEmployees(employees: object) {
+export function successEmployees(employees: Employees[]): AppActions {
 
-    console.log('employees action:', employees);
-
-    return {
-      type: EMPLOYEES_REQUESTED,
-      employees,
-    }
+  return {
+    type: SUCCESS_EMPLOYEES,
+    employees,
   }
+}
 
 
-  export function fetchEmployees() {
+  export function fetchEmployees(): AppActions {
     return {
-      type: EMPLOYEES_WATCHER,
+      type: FETCH_EMPLOYEES,
     }
   }
     

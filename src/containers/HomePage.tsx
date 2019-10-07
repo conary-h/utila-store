@@ -1,43 +1,77 @@
 import React from 'react';
-// import { EMPLOYEES_WATCHER } from '../actions/types';
 import { fetchEmployees } from '../actions';
 import { connect } from 'react-redux';
+import { Employees } from '../types/Employee';
 
 interface iProps {
-    fetchEmployees: any
+  fetchEmployees: any,
+  employees: Employees[]
 };
 
 class HomePage extends React.Component<iProps, {}> {
 
-    render() {
+  _renderEmployees = () => {
 
-        const { fetchEmployees } = this.props;
+    const { employees = [] } = this.props;
 
-        return (
-            <div>
-                Home Page
+    const employeesRow = employees.map((employee, index) => (
+      index < 15) && (
+      <tr key={`employee-${employee.id}`}>
+        <th>{employee.employee_name}</th>
+        <th>{employee.employee_salary}</th>
+        <th>{employee.employee_age}</th>
+      </tr>
+    ));
 
-                <button onClick={fetchEmployees}>
-                    Click Me!
-                </button>
-            </div>
-        );
-    }
+    return (
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Age</th>
+          </tr>
+        </thead>
+        <tbody>
+          {employeesRow}
+        </tbody>
+      </table>
+    );
+  }
+
+  render() {
+
+    const { fetchEmployees } = this.props;
+
+    return (
+      <div>
+        Home Page
+
+        {this._renderEmployees()}
+
+        <button onClick={fetchEmployees}>
+          Click Me!
+        </button>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = (state: any) => {
-    const { employees } = state;
-  
-    return { employees };
+  const { employees } = state;
+
+  // console.log('state', state);
+
+  return { employees };
 }
 
 const mapDispatchToProps = (dispatch: any) => {
-    return {
-        fetchEmployees: () => {
-            console.log('dispatch', dispatch);
-            dispatch(fetchEmployees())
-        },
-    }
+  return {
+    fetchEmployees: () => {
+      // console.log('dispatch', dispatch);
+      dispatch(fetchEmployees())
+    },
+  }
 };
 
 

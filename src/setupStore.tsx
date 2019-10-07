@@ -1,27 +1,27 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import reducers from './reducers';
+import rootReducer from './reducers';
 import rootSaga from './sagas';
 
-function setupStore(initialState:any) {
-
-  // Reducers
-  const rootReducer = () => [];
-
+function setupStore(initialState: any) {
 
   // Middleware
   const sagaMiddleware = createSagaMiddleware();
 
   const middleware = applyMiddleware(...[
-    sagaMiddleware
+    sagaMiddleware,
   ]);
 
+  const reduxDevTools = (
+    (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
+    (window as any).__REDUX_DEVTOOLS_EXTENSION__()
+  );
 
   // Store
   const store = createStore(
     rootReducer,
     initialState,
-    middleware,
+    compose(middleware, reduxDevTools)
   );
 
   // Sagas
@@ -29,5 +29,7 @@ function setupStore(initialState:any) {
 
   return store;
 }
+
+export type AppState = ReturnType<typeof rootReducer>;
 
 export default setupStore;
