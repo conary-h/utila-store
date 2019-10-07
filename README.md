@@ -1,3 +1,28 @@
+# Utila Store 🎣
+
+Welcome to Utila Store! This is our playground using React, Redux Saga, TypeScript, React Router, please feel free to buy whatever you want 😎💵.
+
+
+<span>
+   <img src="https://cdn.auth0.com/blog/react-js/react.png" alt="React" width="90"/>
+</span>
+
+<span>
+  <img src="https://cdn-media-1.freecodecamp.org/images/1*TKvlTeNqtkp1s-eVB5Hrvg@2x.png" alt="React Router" width="150"/> </span>
+  
+<span>
+  <img src="https://camo.githubusercontent.com/6effdb8103365043944db7a341e91ffe2fc234e5/68747470733a2f2f63646e2e7261776769742e636f6d2f706564726f6d616c74657a2f747970657363726970742d6c6f676f2d72656372656174696f6e2f6d61737465722f6c6f676f732f747970657363726970742d636f6c6f722d6c6f676f2e737667" alt="Typescript" width="150"/>
+</span>
+
+<span>
+  <img src="https://camo.githubusercontent.com/4354872161943c4ae2ceec2a946dec85b96799b8/68747470733a2f2f72656475782d736167612e6a732e6f72672f6c6f676f2f303830302f52656475782d536167612d4c6f676f2d4c616e6473636170652e706e67" alt="Redux Saga" width="150"/>
+</span>
+
+<span>
+  <img src="https://www.resourcifi.com/wp-content/themes/resourcifi-child/img/express-min.png" alt="Express.js" width="150"/>
+</span>
+
+<br/>
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
