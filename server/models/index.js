@@ -6,7 +6,7 @@
 */
 
 require('./Brand');
-// require('./User');
-
-
-
+require('./Category');
+require('./Product');
+require('./Review');
+require('./User');
