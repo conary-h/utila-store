@@ -21,6 +21,18 @@ if (process.env.NODE_ENV === 'development') {
   mongoose.set('debug', true);
 }
 
-require('../models/index');
+/**
+* Initialize Models
+*
+*  How to use it:
+*  mongoose.model('Brand')
+*/
+
+require('../components/brand/BrandModel');
+require('../components/categories/CategoryModel');
+require('../components/products/ProductModel');
+require('../components/reviews/ReviewModel');
+require('../components/users/UserModel');
+
 
 exports.module = mongoose;

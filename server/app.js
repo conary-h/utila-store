@@ -8,8 +8,9 @@ const mongoose = require('./config/database');
 
 app.use('/', routes);
 
-app.set('port', process.env.PORT || 7777);
+app.use(bodyParser.json());
 
-const server = app.listen(app.get('port'), () => {
-  console.log(`Express running → PORT ${server.address().port}`);
-});
+// app.use('/api/events', events.API);
+// app.use('/api/forms', forms);
+
+module.exports = app;
