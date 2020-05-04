@@ -33,4 +33,17 @@ const productSchema = new mongoose.Schema({
   },
 });
 
+/**
+ * Prepopulate fields on find
+ * It populates the brand and category content.
+ */
+function autopopulate() {
+  return this.populate('brand')
+    .populate('category');
+}
+
+reviewSchema.pre('find', autopopulate);
+reviewSchema.pre('findOne', autopopulate);
+
+
 module.exports = mongoose.model('Product', productSchema);
